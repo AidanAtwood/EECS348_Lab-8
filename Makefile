@@ -1,19 +1,8 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-
-SRC = main.cpp matrix.cpp
-OBJ = $(SRC:.cpp=.o)
-EXEC = program
-
-all: $(EXEC)
-
-%.o: %.cpp matrix.hpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(EXEC): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXEC)
+matrix.exe: main.cpp matrix.cpp matrix.hpp
+	g++ -Wall -Wextra main.cpp matrix.cpp matrix.hpp -o matrix.exe
 
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f matrix.exe
 
-.PHONY: all clean
+run:
+	./matrix.exe

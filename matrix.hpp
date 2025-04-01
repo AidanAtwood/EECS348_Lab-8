@@ -3,18 +3,17 @@
 
 #include <cstdint>
 #include <vector>
-#include <string>
-#include <iostream>
 
 class Matrix {
-private: 
-    std::size_t size;
-    std::vector<std::vector<int>> data;
+
+private:
+    int size;
+    std::vector<std::vector<int>> matrix;
 
 public:
-    explicit Matrix(std::size_t N);
-    explicit Matrix(std::vector<std::vector<int>> nums);
-    static Matrix read_file(cont std::string& filename, std::size_t matrix_nums);
+    Matrix(std::size_t N);
+    Matrix(std::vector<std::vector<int>> nums);
+
     Matrix operator+(const Matrix &rhs) const;
     Matrix operator*(const Matrix &rhs) const;
     void set_value(std::size_t i, std::size_t j, int n);
@@ -22,8 +21,8 @@ public:
     int get_size() const;
     int sum_diagonal_major() const;
     int sum_diagonal_minor() const;
-    void swap_rows(std::size_t r1, std::size_t r2);
-    void swap_cols(std::size_t c1, std::size_t c2);
+    void swap_rows(std::size_t row1, std::size_t row2);
+    void swap_cols(std::size_t col1, std::size_t col2);
     void print_matrix() const;
 };
 
