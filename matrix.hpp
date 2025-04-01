@@ -3,12 +3,18 @@
 
 #include <cstdint>
 #include <vector>
+#include <string>
+#include <iostream>
 
 class Matrix {
-public:
-    Matrix(std::size_t N);
-    Matrix(std::vector<std::vector<int>> nums);
+private: 
+    std::size_t size;
+    std::vector<std::vector<int>> data;
 
+public:
+    explicit Matrix(std::size_t N);
+    explicit Matrix(std::vector<std::vector<int>> nums);
+    static Matrix read_file(cont std::string& filename, std::size_t matrix_nums);
     Matrix operator+(const Matrix &rhs) const;
     Matrix operator*(const Matrix &rhs) const;
     void set_value(std::size_t i, std::size_t j, int n);
